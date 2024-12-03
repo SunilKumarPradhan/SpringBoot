@@ -48,6 +48,7 @@ async function loop() {
 }
 
 // Run predictions and update labels and counts
+// Run predictions and update labels and counts// Run predictions and update labels and counts
 async function predict() {
     try {
         const predictions = await model.predict(webcam.canvas);
@@ -66,7 +67,7 @@ async function predict() {
         console.log("Predicted label:", label); // Debugging log
 
         // Normalize the label to match the keys in labelCounts
-        const normalizedLabel = label.charAt(0).toUpperCase() + label.slice(1).toLowerCase();
+        const normalizedLabel = label.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
 
         // Update the current label if it has changed
         if (normalizedLabel !== currentLabel) {
@@ -77,7 +78,10 @@ async function predict() {
             if (labelCounts[currentLabel] !== undefined) {
                 labelCounts[currentLabel]++;
                 console.log(`Updated count for ${currentLabel}:`, labelCounts[currentLabel]); // Debugging log
-                document.getElementById(`count-${currentLabel}`).textContent = labelCounts[currentLabel];
+
+                // Handle the ID for "Tender Coconut" separately
+                const id = currentLabel === "Tender Coconut" ? "count-Tender-Coconut" : `count-${currentLabel}`;
+                document.getElementById(id).textContent = labelCounts[currentLabel];
             }
         }
     } catch (error) {
