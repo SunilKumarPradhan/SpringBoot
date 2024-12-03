@@ -12,17 +12,6 @@ let labelCounts = {
     "Tender Coconut": 0
 };
 
-let snapshotInterval;
-let snapshotActive = false;
-let snapshotPath = {
-    "Apple": "apple_path",
-    "Orange": "orange_path",
-    "Banana": "banana_path",
-    "Watermelon": "watermelon_path",
-    "Strawberry": "strawberry_path",
-    "Tender Coconut": "tender_coconut_path"
-};
-
 // Initialize the model and webcam
 async function init() {
     try {
@@ -47,13 +36,6 @@ async function init() {
     }
 }
 
-// Stop the webcam
-function stopCamera() {
-    if (webcam) {
-        webcam.stop();
-    }
-}
-
 // Real-time prediction loop
 async function loop() {
     try {
@@ -66,6 +48,7 @@ async function loop() {
 }
 
 // Run predictions and update labels and counts
+// Run predictions and update labels and counts// Run predictions and update labels and counts
 async function predict() {
     try {
         const predictions = await model.predict(webcam.canvas);
@@ -98,42 +81,10 @@ async function predict() {
 
                 // Handle the ID for "Tender Coconut" separately
                 const id = currentLabel === "Tender Coconut" ? "count-Tender-Coconut" : `count-${currentLabel}`;
-                const element = document.getElementById(id);
-                if (element) {
-                    element.textContent = labelCounts[currentLabel];
-                } else {
-                    console.error(`Element with ID ${id} not found`);
-                }
+                document.getElementById(id).textContent = labelCounts[currentLabel];
             }
         }
     } catch (error) {
         console.error("Error during prediction:", error);
-    }
-}
-
-// Start taking snapshots
-function startSnapshot() {
-    if (!snapshotActive) {
-        snapshotActive = true;
-        snapshotInterval = setInterval(takeSnapshot, 30000);
-    }
-}
-
-// Stop taking snapshots
-function stopSnapshot() {
-    snapshotActive = false;
-    clearInterval(snapshotInterval);
-}
-
-// Take a snapshot
-function takeSnapshot() {
-    if (currentLabel && snapshotPath[currentLabel]) {
-        const canvas = webcam.canvas;
-        const dataUrl = canvas.toDataURL('image/png');
-        const link = document.createElement('a');
-        link.href = dataUrl;
-        link.download = `${snapshotPath[currentLabel]}/${Date.now()}.png`;
-        link.click();
-        console.log(`Snapshot taken for ${currentLabel}`);
     }
 }

@@ -75,7 +75,7 @@ body {
 }
 
 /* Button */
-#start-button, #stop-button, #start-snapshot-button, #stop-snapshot-button {
+#start-button {
     background-color: #00d1b2;
     color: #1e1e2f;
     border: none;
@@ -83,10 +83,9 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
-    margin: 5px;
 }
 
-#start-button:hover, #stop-button:hover, #start-snapshot-button:hover, #stop-snapshot-button:hover {
+#start-button:hover {
     background-color: #00a885;
 }
 

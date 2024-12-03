@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spring ML</title>
+    <title>Springboot with ML</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
@@ -48,13 +48,10 @@
             </table>
         </div>
         <div class="camera-section">
-            <h1>Spring Classify</h1>
-            <button id="start-button" onclick="init()">📷 Start Camera</button>
-            <button id="stop-button" onclick="stopCamera()">🛑 Stop Camera</button>
+            <h1>Spring Detect 🍃 </h1>
+            <button id="start-button" onclick="init()">Start Camera</button>
             <div id="webcam-container"></div>
             <div id="current-label">Current Label: <span id="label-display">None</span></div>
-            <button id="start-snapshot-button" onclick="startSnapshot()">📸 Start Snapshot</button>
-            <button id="stop-snapshot-button" onclick="stopSnapshot()">🛑 Stop Snapshot</button>
         </div>
     </div>
     <script src="script.js"></script>
