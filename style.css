@@ -1,0 +1,101 @@
+/* General Reset */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #1e1e2f;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Main Layout */
+.main-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    height: 90%;
+}
+
+/* Side Pane */
+.side-pane {
+    width: 30%;
+    padding: 20px;
+    background-color: #2a2a3b;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    margin-right: 20px;
+}
+
+.side-pane h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00d1b2;
+}
+
+.side-pane table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.side-pane th, .side-pane td {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+.side-pane th {
+    color: #00d1b2;
+}
+
+.side-pane td {
+    color: #ffffff;
+}
+
+/* Camera Section */
+.camera-section {
+    width: 70%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #2a2a3b;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#webcam-container {
+    margin: 20px auto;
+    border: 3px solid #00d1b2;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    height: 375px;
+    overflow: hidden;
+}
+
+/* Button */
+#start-button {
+    background-color: #00d1b2;
+    color: #1e1e2f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#start-button:hover {
+    background-color: #00a885;
+}
+
+/* Label Display */
+#current-label {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+#label-display {
+    font-weight: bold;
+    color: #00d1b2;
+}

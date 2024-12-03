@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring ML</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="side-pane">
+            <h2>Item Count</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Items</th>
+                        <th>Count</th>
+                    </tr>
+                </thead>
+                <tbody id="count-table-body">
+                    <tr>
+                        <td>🍎 Apple</td>
+                        <td id="count-Apple">0</td>
+                    </tr>
+                    <tr>
+                        <td>🍊 Orange</td>
+                        <td id="count-Orange">0</td>
+                    </tr>
+                    <tr>
+                        <td>🍌 Banana</td>
+                        <td id="count-Banana">0</td>
+                    </tr>
+                    <tr>
+                        <td>🍉 Watermelon</td>
+                        <td id="count-Watermelon">0</td>
+                    </tr>
+                    <tr>
+                        <td>🍓 Strawberry</td>
+                        <td id="count-Strawberry">0</td>
+                    </tr>
+                    <tr>
+                        <td>🥥 Tender Coconut</td>
+                        <td id="count-Tender Coconut">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="camera-section">
+            <h1>Spring Classify</h1>
+            <button id="start-button" onclick="init()">Start Camera</button>
+            <div id="webcam-container"></div>
+            <div id="current-label">Current Label: <span id="label-display">None</span></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
