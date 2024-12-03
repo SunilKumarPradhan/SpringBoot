@@ -63,14 +63,20 @@ async function predict() {
             }
         });
 
+        console.log("Predicted label:", label); // Debugging log
+
+        // Normalize the label to match the keys in labelCounts
+        const normalizedLabel = label.charAt(0).toUpperCase() + label.slice(1).toLowerCase();
+
         // Update the current label if it has changed
-        if (label !== currentLabel) {
-            currentLabel = label;
+        if (normalizedLabel !== currentLabel) {
+            currentLabel = normalizedLabel;
             document.getElementById("label-display").textContent = currentLabel;
 
             // Increment count for the label
             if (labelCounts[currentLabel] !== undefined) {
                 labelCounts[currentLabel]++;
+                console.log(`Updated count for ${currentLabel}:`, labelCounts[currentLabel]); // Debugging log
                 document.getElementById(`count-${currentLabel}`).textContent = labelCounts[currentLabel];
             }
         }
